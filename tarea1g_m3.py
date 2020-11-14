@@ -5,7 +5,7 @@
 class Cliente:
 
 	# inicializamos dos atributos de instancia
-	def __init__(self, nombre, id, saldo):
+	def __init__(self, nombre, id_unico, saldo):
 		self.nombre = nombre
 		self.id_unico = id_unico
 		self.saldo = saldo
@@ -27,23 +27,28 @@ class Cliente:
 
 class Financiera:
 
-	lista_clientes = []
+	#lista_clientes = []
 
 	def __init__(self, nombre, id_unico, saldo_institucional, clientes):
 		self.nombre = nombre
 		self.id_unico = id_unico
 		self.saldo_institucional = saldo_institucional
-		self.clientes = clientes
+		self.clientes = []
 
     # claudio, revisar script
 	def agregar_cliente(self, cliente):
-		clientes.append(cliente)
-		print('cliente agregado')
+		# se agregan los atributos del cliente a una tupla
+		tupla = (cliente.nombre, cliente.id_unico, cliente.saldo)
+		self.clientes.append(tupla) # la tupla se guarda en la lista de instancia
+		# se verifica que se guardo el cliente
+		print('El cliente ha sido agregado : ', self.clientes)
     
     # claudio, revisar script
-	def eliminar_cliente(self, cliente):
-		clientes.remove(cliente)
-		print('cliente eliminado')
+	def eliminar_cliente(self):
+		i = int(input('ingrese el indice en la lista que corresponde al cliente a eliminar: '))
+		self.clientes.pop(i)
+		print('El cliente ha sido eliminado : ', self.clientes)
+
 
 	def tranferir(self):
 		pass
@@ -57,17 +62,27 @@ class Financiera:
 	def mostrar_saldo_institucional(self):
 		pass
 
+### Modelos de pruebas de funciones agregar y eliminar clientes
 
-	
-cl = Cliente('Ale', 1, 1)
+# se crea financiera
+financiera1 = Financiera('piraña',1, 2, 3)
 
-#cliente1 = Cliente('perro', '1', '2')
-#cliente2 = Cliente('perra', 2, 2000000)
+# se crean clientes
+cliente1 = Cliente('Ale', 1, 1)
+cliente2 = Cliente('Pedro', 2, 2)
+cliente3 = Cliente('Jorge',3,3)
+
+# se agregan clientes a la financiera
+financiera1.agregar_cliente(cliente1)
+financiera1.agregar_cliente(cliente2)
+financiera1.agregar_cliente(cliente3)
+
+# se elimina el cliente1
+financiera1.eliminar_cliente()
+
+# verificacion de los clientes en la financiera
+print('Los clientes en la financiera1 son: ',financiera1.clientes)
 
 
-#Financiera1 = Financiera('Piraña', 1, 100000, clientes)
-
-
-print('hola')
 input()
 
