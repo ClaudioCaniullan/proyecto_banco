@@ -27,6 +27,8 @@ class Cliente:
 
 class Financiera:
 
+	lista_clientes = []
+
 	def __init__(self, nombre, id_unico, saldo_institucional, clientes):
 		self.nombre = nombre
 		self.id_unico = id_unico
@@ -35,13 +37,11 @@ class Financiera:
 
     # claudio, revisar script
 	def agregar_cliente(self, cliente):
-		clientes = []
 		clientes.append(cliente)
 		print('cliente agregado')
     
-    # claudio 
+    # claudio, revisar script
 	def eliminar_cliente(self, cliente):
-		clientes = []
 		clientes.remove(cliente)
 		print('cliente eliminado')
 
@@ -58,17 +58,15 @@ class Financiera:
 		pass
 
 
-"""	
-clientes = []
+	
+cl = Cliente('Ale', 1, 1)
 
-cliente1 = Cliente('perro', 1, 1000000)
-cliente2 = Cliente('perra', 2, 2000000)
+#cliente1 = Cliente('perro', '1', '2')
+#cliente2 = Cliente('perra', 2, 2000000)
 
 
-clientes.append(cliente1)
+#Financiera1 = Financiera('Piraña', 1, 100000, clientes)
 
-Financiera1 = Financiera('Piraña', 1, 100000, clientes)
-"""
 
 print('hola')
 input()
