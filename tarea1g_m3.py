@@ -60,6 +60,3 @@ cliente2 = Cliente('perra,', 2, 2000000)
 clientes.append(cliente1)
 
 Financiera1 = Financiera('Piraña', 1, 100000, clientes)
-
-
-

@@ -14,10 +14,10 @@ for i in range(3):
 
 class Cliente():
         
-    def __init__(self):
-        self.nombre = self.nombre
-        self.id_cliente = self.id_cliente
-        self.saldo = self.saldo
+    def __init__(self, nombre, id_cliente, saldo):
+        self.nombre = nombre
+        self.id_cliente = id_cliente
+        self.saldo = saldo
 
     def girar(self):
         pass
@@ -28,13 +28,17 @@ class Cliente():
     def mostrar_saldo(self):
         pass
 
+    def generador_id(self): # Generador id funcionando ok 
+        self.id_cliente = uuid.uuid4()
+        return self.id_cliente
+
 
 class Financiera():
 
-    def __init__(self):
-        self.nombre = self.nombre
-        self.id_financiera = self.id_financiera
-        self.saldo_institucional = self.saldo_institucional
+    def __init__(self, nombre, id_financiera, saldo_institucional, clientes):
+        self.nombre = nombre
+        self.id_financiera = id_financiera
+        self.saldo_institucional = saldo_institucional
         self.clientes = []
 
     def agregar_cliente(self): # verificar que se cumple condicion del 10 % sino rechazar
@@ -56,3 +60,10 @@ class Financiera():
     def mostrar_saldo_institucional(self):
         pass
 
+    def generador_id(self): # Generador id funcionando ok 
+        self.id_financiera = uuid.uuid4()
+        return self.id_financiera
+
+
+cliente_prueba = Cliente("cliente_prueba", "", 1000)
+print(cliente_prueba.generador_id())
