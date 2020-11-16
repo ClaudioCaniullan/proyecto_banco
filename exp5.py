@@ -19,7 +19,7 @@ class Financiera():
 
 	def agregar(self, cliente):
 		tupla = (cliente.nombre, cliente.saldo + 10**6, cliente.id_cliente)
-		self.saldo_institucional = self.saldo_institucional - (10**6)
+		self.saldo_institucional = self.saldo_institucional - 10**6
 		self.clientes.append(tupla)
 
 		print('cliente agregado', self.clientes)
@@ -58,6 +58,10 @@ print(l2)
 financiera1.agregar(cliente1)
 print(financiera1.saldo_institucional)
 
+
+cliente2 = Cliente('Carlos', 0)
+financiera1.agregar(cliente2)
+print(financiera1.saldo_institucional)
 input()
 
 		
