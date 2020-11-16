@@ -18,6 +18,10 @@ class Cliente():
         self.nombre = nombre
         self.id_cliente = id_cliente
         self.saldo = saldo
+    
+    def info_cliente(self):
+        self.info_lista = []
+
 
     def girar(self):
         pass
@@ -42,7 +46,17 @@ class Financiera():
         self.clientes = []
 
     def agregar_cliente(self): # verificar que se cumple condicion del 10 % sino rechazar
-        pass
+        
+        for _cliente in self.clientes: # Indica cantidad de cliente en la financiera
+            contador = 0
+            contador += 1
+            _total_clientes = contador
+        
+
+        self.linea_credito = 1000000  # por un cliente
+        self.lim_max_cred = self.saldo_institucional * 0.10 # se establece max de linea de credito
+        self.acceso_credito = 0
+
 
     def eliminar_cliente(self):
         pass
@@ -65,12 +79,26 @@ class Financiera():
         return self.id_financiera
 
 
+# Creando financieras
+pasa_todo = Financiera("Pasa Todo", "", 100000000, "")
+sin_niuno = Financiera("Sin niuno", "", 100000000, "")
+
+# Creando cliente (4 x Financiera)
+cliente_a1 = Cliente("Seba", "", 1000000)
+cliente_a2 = Cliente("Walter", "", 1000000)
+cliente_a3 = Cliente("Claudio", "", 1000000)
+cliente_a4 = Cliente("Miguel", "", 1000000)
+
+cliente_b1 = Cliente("Jonathan", "", 1000000)
+cliente_b2 = Cliente("Luis", "", 1000000)
+cliente_b3 = Cliente("Gloria", "", 1000000)
+cliente_b4 = Cliente("Vania", "", 1000000)
 
 
 
 
-
-
+print("Numero de clientes en financiera: ", pasa_todo.clientes)
+print(Cliente.__init__)
 
 
 
