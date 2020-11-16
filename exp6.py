@@ -1,7 +1,10 @@
-## En este ejemplo se entiende que el monto maximo destinada para creditos
-## corresponde al 10% del saldo institucional de 100 millones , osea, 10 millones en total para
-## repartir en creditos, si el monto maximo que puede recibir cada cliente es de 1 millon
-## entonces a lo mas la financiera puede otorgar 10 creditos de 1 millon
+## En este ejemplo se entiende que el monto maximo que se puede asignar a una linea de 
+## credito no sera superior al 10% del monto institucional de 100 milloines, osea, un credito
+# personal no exedera los 10 millones 
+
+
+
+# el codigo se debe modificar para satisfacer la condicion de arriba 
 
 import uuid
 
@@ -46,13 +49,14 @@ class Financiera():
 	def mostrar_saldo_institucional(self):
 		pass
 
-# se crea cleinte1 y se verifica sus datos  
+# info del cliente creado 
 cliente1 = Cliente('juana', 60000)
 l1 = [cliente1.nombre, cliente1.saldo, cliente1.id_cliente]
 print(l1)
 
 
-# crear financiera y se verifican sus datos 
+# crear financiera y agregar cliente 
+
 financiera1 = Financiera('piraña')
 l2 = [financiera1.nombre, financiera1.saldo_institucional, financiera1.id_unico, financiera1.clientes ]
 print(l2)
@@ -62,11 +66,8 @@ financiera1.agregar(cliente1)
 print(financiera1.saldo_institucional)
 
 
-# se crea cliente 2 y se agrega, observar que el saldo de la financiera disminuye en 2 millones
 cliente2 = Cliente('Carlos', 0)
 financiera1.agregar(cliente2)
 print(financiera1.saldo_institucional)
 
 input()
-
-		
