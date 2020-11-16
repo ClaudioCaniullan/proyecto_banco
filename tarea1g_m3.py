@@ -1,13 +1,13 @@
 
-
+import uuid
 # clase Cliente 
 
 class Cliente:
 
 	# inicializamos dos atributos de instancia
-	def __init__(self, nombre, id_unico, saldo):
+	def __init__(self, nombre,saldo):
 		self.nombre = nombre
-		self.id_unico = id_unico
+        self.id_cliente = uuid.uuid4()
 		self.saldo = saldo
 
 
@@ -27,12 +27,11 @@ class Cliente:
 
 class Financiera:
 
-	#lista_clientes = []
+	self.saldo_institucional = 100000000
 
-	def __init__(self, nombre, id_unico, saldo_institucional, clientes):
+	def __init__(self, nombre):
 		self.nombre = nombre
-		self.id_unico = id_unico
-		self.saldo_institucional = saldo_institucional
+        self.id_unico = uuid.uuid4()
 		self.clientes = []
 
     # claudio, revisar script
@@ -65,24 +64,23 @@ class Financiera:
 ### Modelos de pruebas de funciones agregar y eliminar clientes
 
 # se crea financiera
-financiera1 = Financiera('piraña',1, 2, 3)
+financiera1 = Financiera('piraña')
 
+"""
 # se crean clientes
 cliente1 = Cliente('Ale', 1, 1)
-cliente2 = Cliente('Pedro', 2, 2)
-cliente3 = Cliente('Jorge',3,3)
+
 
 # se agregan clientes a la financiera
 financiera1.agregar_cliente(cliente1)
-financiera1.agregar_cliente(cliente2)
-financiera1.agregar_cliente(cliente3)
+
 
 # se elimina el cliente1
 financiera1.eliminar_cliente()
 
 # verificacion de los clientes en la financiera
 print('Los clientes en la financiera1 son: ',financiera1.clientes)
-
+"""
 
 input()
 
