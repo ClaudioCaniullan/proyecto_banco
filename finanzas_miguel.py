@@ -19,14 +19,17 @@ for i in range(3):
 class Cliente():
         
 
-    def __init__(self, nombre, saldo):
+    def __init__(self, nombre, saldo_cliente):
+        self.datos_cliente = []
         self.nombre = nombre
         self.id_cliente = uuid.uuid4()
-        self.saldo = saldo
-        self.datos_cliente = []
+        self.saldo_cliente: saldo_cliente
         self.datos_cliente.append(nombre)
         self.datos_cliente.append(self.id_cliente)
-        self.datos_cliente.append(saldo)
+        self.datos_cliente.append(saldo_cliente)
+        #self.datos_cliente.append(self.saldo_total)
+        
+        
 
     def girar(self):
         pass
@@ -41,21 +44,39 @@ class Cliente():
 
 
 class Financiera():
+    
+    total_saldo_clientes = 0
+    
 
-    base_clientes: {}
-    total_clientes = 0
-
-    def __init__(self, nombre, id_financiera, saldo_institucional):
+    def __init__(self, nombre, id_financiera):
         self.nombre = nombre
         self.id_financiera = uuid.uuid4()
-        self.saldo_institucional = saldo_institucional
+        self.saldo_institucional = 100000000
         self.clientes = []
         
+        
     def agregar_cliente(self, *lista): # verificar que se cumple condicion del 10 % sino rechazar
-        self.datos_cliente= lista # guarda informacion cliente   
-        self.linea_credito = 1000000  # por un cliente
-        self.lim_max_cred = self.saldo_institucional * 0.10 # se establece max de linea de credito
-        self.acceso_credito = 0
+        #print(lista)
+        
+        self._10porc = self.saldo_institucional * 0.10
+        self.total_clientes = 0
+        self.saldo_cte = lista[0][2]
+        self.total_saldo_clientes = 0 + self.saldo_cte
+        
+        for elemento in lista[1]:
+            cont = 0
+            cont += elemento
+            self.total_clientes = cont
+            break
+        
+        if self.total_saldo_clientes <= self.saldo_institucional:
+            print("Cliente OK")
+            
+        else:
+            print("Cliente rechazado")
+        
+        self.clientes.append(lista)
+
 
 
     def eliminar_cliente(self):
@@ -78,27 +99,45 @@ class Financiera():
 
 
 # Creando financieras
-pasa_todo = Financiera("Pasa Todo", "", 100000000)
-sin_niuno = Financiera("Sin niuno", "", 100000000)
+pasa_todo = Financiera("Pasa Todo", "")
+sin_niuno = Financiera("Sin niuno", "")
 
 # Creando cliente (4 x Financiera)
-cliente_a1 = Cliente("Seba", 1000000)
+cliente_a1 = Cliente("Seba", 10000000)
+#print(cliente_a1.datos_cliente)
 pasa_todo.agregar_cliente(cliente_a1.datos_cliente) # se agrega el cliente en lista de financiera
 
-cliente_a2 = Cliente("Walter", 1000000)
-cliente_a3 = Cliente("Claudio", 1000000)
-cliente_a4 = Cliente("Miguel", 1000000)
+cliente_a2 = Cliente("Walter", 10000000)
+pasa_todo.agregar_cliente(cliente_a2.datos_cliente) # se agrega el cliente en lista de financiera
 
-cliente_b1 = Cliente("Jonathan", 1000000)
-cliente_b2 = Cliente("Luis", 1000000)
-cliente_b3 = Cliente("Gloria", 1000000)
-cliente_b4 = Cliente("Vania", 1000000)
+cliente_a3 = Cliente("Claudio", 10000000)
+pasa_todo.agregar_cliente(cliente_a3.datos_cliente) # se agrega el cliente en lista de financiera
 
-
+cliente_a4 = Cliente("Miguel", 10000000)
+pasa_todo.agregar_cliente(cliente_a4.datos_cliente) # se agrega el cliente en lista de financiera
 
 
 
+cliente_b1 = Cliente("Jonathan", 10000000)
+pasa_todo.agregar_cliente(cliente_b1.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b2 = Cliente("Luis", 10000000)
+pasa_todo.agregar_cliente(cliente_b2.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b3 = Cliente("Gloria", 10000000)
+pasa_todo.agregar_cliente(cliente_b3.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b4 = Cliente("Vania", 10000000)
+pasa_todo.agregar_cliente(cliente_b4.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b5 = Cliente("Gatita", 10000000)
+pasa_todo.agregar_cliente(cliente_b4.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b6 = Cliente("Sofia", 10000000)
+pasa_todo.agregar_cliente(cliente_b4.datos_cliente) # se agrega el cliente en lista de financiera
+
+cliente_b7 = Cliente("Renata", 10000000)
+pasa_todo.agregar_cliente(cliente_b4.datos_cliente) # se agrega el cliente en lista de financiera
 
 
-if __name__ == "__main__":
-    pass
+print(Financiera.total_saldo_clientes)
