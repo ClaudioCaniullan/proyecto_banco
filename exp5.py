@@ -29,7 +29,7 @@ class Financiera():
 		print('cliente agregado', self.clientes)
 
 	def eliminar(self):
-		i = input('ingrese el indice en la lista del cliente a eliminar: ')
+		i = input('ingrese el indice en la lista que corresponde al cliente a eliminar: ')
 		self.clientes.pop(i)
 		print('el cliente ha sido eliminado', self.clientes)
 
@@ -65,6 +65,11 @@ print(financiera1.saldo_institucional)
 # se crea cliente 2 y se agrega, observar que el saldo de la financiera disminuye en 2 millones
 cliente2 = Cliente('Carlos', 0)
 financiera1.agregar(cliente2)
+print(financiera1.saldo_institucional)
+
+# idem, cliente 3 
+cliente3 = Cliente('Gato', 120000)
+financiera1.agregar(cliente3)
 print(financiera1.saldo_institucional)
 
 input()
