@@ -64,6 +64,6 @@ class Financiera():
         self.id_financiera = uuid.uuid4()
         return self.id_financiera
 
-
-cliente_prueba = Cliente("cliente_prueba", "", 1000)
-print(cliente_prueba.generador_id())
+if __name__ == "__main__":
+    cliente_prueba = Cliente("cliente_prueba", "", 1000)
+    print(cliente_prueba.generador_id())
