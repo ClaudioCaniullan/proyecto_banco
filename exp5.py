@@ -12,6 +12,20 @@ class Cliente():
 		self.saldo = saldo
 		self.id_cliente = uuid.uuid4()
 
+	def girar(self, giro):
+		if self.saldo >= giro:
+			self.saldo -= giro
+			print(self.saldo)
+		else:
+			print("No se puede efectuar la transacción")
+
+	def abonar(self, abonar):
+		self.saldo += abonar
+		print(self.saldo)
+
+	def mostrar_saldo(self):
+		return self.saldo
+
 
 class Financiera():
 
@@ -29,13 +43,17 @@ class Financiera():
 		print('cliente agregado', self.clientes)
 
 	def eliminar(self):
-		i = input('ingrese el indice en la lista que corresponde al cliente a eliminar: ')
+		i = int(input('ingrese el indice en la lista que corresponde al cliente a eliminar: '))
 		self.clientes.pop(i)
 		print('el cliente ha sido eliminado', self.clientes)
 
 
 	def tranferir(self):
-		pass
+
+		c1 = self.clientes[0][1]
+		print(c1)
+		
+
 
 	def giros_totales(self):
 		pass
@@ -44,7 +62,7 @@ class Financiera():
 		pass
 
 	def mostrar_saldo_institucional(self):
-		pass
+		print('El saldo institucional a la fecha es de :', self.saldo_institucional)
 
 # se crea cleinte1 y se verifica sus datos  
 cliente1 = Cliente('juana', 60000)
@@ -71,6 +89,9 @@ print(financiera1.saldo_institucional)
 cliente3 = Cliente('Gato', 120000)
 financiera1.agregar(cliente3)
 print(financiera1.saldo_institucional)
+
+financiera1.tranferir()
+
 
 input()
 
