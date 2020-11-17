@@ -17,14 +17,15 @@ class Cliente():
 			self.saldo -= giro
 			print(self.saldo)
 		else:
-			print("No se puede efectuar la transacción")
+			print('no puede efectuar la transacción')
 
 	def abonar(self, abonar):
 		self.saldo += abonar
 		print(self.saldo)
 
 	def mostrar_saldo(self):
-		return self.saldo
+		print(financiera1.saldo_institucional)
+
 
 
 class Financiera():
@@ -43,17 +44,13 @@ class Financiera():
 		print('cliente agregado', self.clientes)
 
 	def eliminar(self):
-		i = int(input('ingrese el indice en la lista que corresponde al cliente a eliminar: '))
+		i = input('ingrese el indice en la lista que corresponde al cliente a eliminar: ')
 		self.clientes.pop(i)
 		print('el cliente ha sido eliminado', self.clientes)
 
 
 	def tranferir(self):
-
-		c1 = self.clientes[0][1]
-		print(c1)
-		
-
+		pass
 
 	def giros_totales(self):
 		pass
@@ -62,12 +59,15 @@ class Financiera():
 		pass
 
 	def mostrar_saldo_institucional(self):
-		print('El saldo institucional a la fecha es de :', self.saldo_institucional)
+		pass
 
-# se crea cleinte1 y se verifica sus datos  
+# se crea cleinte1 y se verifica sus datos
+
 cliente1 = Cliente('juana', 60000)
+cliente1.mostrar_saldo
 l1 = [cliente1.nombre, cliente1.saldo, cliente1.id_cliente]
 print(l1)
+
 
 
 # crear financiera y se verifican sus datos 
@@ -89,9 +89,6 @@ print(financiera1.saldo_institucional)
 cliente3 = Cliente('Gato', 120000)
 financiera1.agregar(cliente3)
 print(financiera1.saldo_institucional)
-
-financiera1.tranferir()
-
 
 input()
 
