@@ -15,13 +15,14 @@ class Cliente():
 	def girar(self, giro):
 		if self.saldo >= giro:
 			self.saldo -= giro
-			print('Despues de Girar: te informamos', self.nombre ,'que tu saldo es de', self.saldo)
+			print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
 		else:
 			print('no puede efectuar la transacción')
 
-	def abonar(self, abonar):
-		self.saldo += abonar
-		print('Despues de Abonar: te informamos', self.nombre ,'que tu saldo es de', self.saldo)
+	def abonar(self, abono):
+		self.abono = abono
+		self.saldo += abono
+		print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
 
 	def mostrar_saldo(self):
 		print('Consulta de saldo:',self.nombre, 'tu saldo es de',self.saldo)
@@ -51,15 +52,20 @@ class Financiera():
 
 
 	def tranferir(self, cliente1, monto, cliente2):
+		print(cliente1.nombre, 'tranfiere el monto de', monto, 'a', cliente2.nombre)
 		cliente1.girar(monto)
 		cliente2.abonar(monto)
 		
 
-	def giros_totales(self):
-		pass
+	def giros_totales(self, cliente):
+		girosT = []
+		girosT.append(cliente.giro)
+		print('Tus giros totales son:', girosT)
 
-	def abonos_totales(self):
-		pass
+	def abonos_totales(self, cliente):
+		abonosT = []
+		abonosT.append(cliente.abono)
+		print('Tus abonos totales son:', abonosT)
 
 	def mostrar_saldo_institucional(self):
 		pass
@@ -67,24 +73,41 @@ class Financiera():
 # crear clientes
 cliente1 = Cliente('juana', 60000)
 cliente2 = Cliente('Carlos', 0)
+cliente3 = Cliente('Pepe', 500000)
 
 # crear financiera 
 financiera1 = Financiera('piraña')
 
 # agregar clientes
+print('SE AGREGAN CLIENTES A FINANCIERA')
 financiera1.agregar(cliente1)
 financiera1.agregar(cliente2)
+financiera1.agregar(cliente3)
 
 #cliente1.mostrar_saldo()
 
 # realizar transferencia
+print('SE REALIZA TRANSFERENCIA')
 financiera1.tranferir(cliente1, 10000, cliente2)
+financiera1.tranferir(cliente2, 40000, cliente3)
 
 #revisar saldos de clientes
+print('SE REVISAN SALDO DE CLIENTE')
 cliente1.mostrar_saldo()
+cliente1.girar(45)
 cliente2.mostrar_saldo()
 
 
+# revisar abonos totales
+print('REVISANDO ABONOS TOTALES')
+financiera1.abonos_totales(cliente1)
+cliente1.abonar(1234)
+financiera1.abonos_totales(cliente1)
+
+
+# revisar girtos totales
+print('REVISANDO GIROS TOTALES')
+financiera1.giros_totales(cliente2)
 # dos forma de invocar a un metedo de cliente1
 #cliente1.mostrar_saldo()
 #Cliente.mostrar_saldo(cliente1)
