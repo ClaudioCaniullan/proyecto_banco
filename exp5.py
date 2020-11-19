@@ -60,9 +60,9 @@ class Financiera():
     def giros_totales(self):
         pass
 
-    def abonos_totales(self, abonar):
+    def abonos_totales(self, cliente):
         cliente_abonos = []
-        cliente_abonos.append(cliente.abonar)
+        cliente_abonos.append(cliente.abonar.monto)
         return cliente_abonos
 
     def mostrar_saldo_institucional(self):
@@ -99,7 +99,7 @@ cliente3.abonar(70000)
 financiera1.agregar(cliente3)
 #print(financiera1.saldo_institucional)
 
-cliente3 = Cliente('claudito', 120000)
+cliente4 = Cliente('claudito', 120000)
 financiera1.agregar(cliente3)
 
 
@@ -111,4 +111,4 @@ print("Total de financiera:$ ", financiera1.mostrar_saldo_institucional())
 print(financiera1.abonos_totales(cliente1))
 
 
-#print(dir  ( __main__) )
+dir(__main__.cliente)
