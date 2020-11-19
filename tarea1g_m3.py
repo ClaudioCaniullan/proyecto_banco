@@ -1,11 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
+
 ## En este ejemplo se entiende que el monto maximo destinada para creditos
 ## corresponde al 10% del saldo institucional de 100 millones , osea, 10 millones en total para
 ## repartir en creditos, si el monto maximo que puede recibir cada cliente es de 1 millon
 ## entonces a lo mas la financiera puede otorgar 10 creditos de 1 millon
->>>>>>> 68879d1994addf0ed51346091c07a29f32cb8098
+
 
 import uuid
 
@@ -29,40 +27,6 @@ class Cliente():
 		self.abono = abono
 		self.saldo += abono
 		print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
-
-	def mostrar_saldo(self):
-<<<<<<< HEAD
-		pass
-=======
-class Cliente:
-
-# inicializamos dos atributos de instancia
-    def __init__(self, nombre, id_unico, saldo):
-        self.nombre = nombre
-        self.id_unico = id_unico
-        self.saldo = saldo
-
-
-	# métodos
-    def girar(self, giro):
-        if self.saldo >= giro:
-            self.saldo -= giro
-            print(self.saldo)
-        else:
-            print("No se puede efectuar la transacción")
->>>>>>> a5267fe572efe979c00f6e87186f6984244edc51
-
-    def abonar(self, abonar):
-        self.saldo += abonar
-        print(self.saldo)
-=======
-		print('Consulta de saldo:',self.nombre, 'tu saldo es de',self.saldo)
->>>>>>> 68879d1994addf0ed51346091c07a29f32cb8098
-
-    def mostrar_saldo(self):
-        return self.saldo
-
-
 
 class Financiera():
 
@@ -130,11 +94,10 @@ financiera1.agregar(cliente2)
 financiera1.agregar(cliente3)
 financiera1.agregar(cliente4)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 # se agregan clientes a la financiera
 financiera1.agregar_cliente(cliente1)
-=======
+
 cliente1 = Cliente('Walter', 1, 100000)
 cliente2 = Cliente('Claudio', 2, 500000)
 cliente3 = Cliente('Miguel', 3, 600000)
@@ -144,14 +107,13 @@ print("Nombre cliente: ", cliente1.nombre, "Cliente Giro: ", cliente1.girar(2000
 print("Nombre cliente: ", cliente2.nombre, "Cliente Giro: ", cliente2.girar(50000), "Cliente Abono: ", cliente2.abonar(20000), "Mostrar Saldo: ", cliente2.saldo)
 print("Nombre cliente: ", cliente3.nombre, "Cliente Giro: ", cliente3.girar(25000), "Cliente Abono: ", cliente3.abonar(14000), "Mostrar Saldo: ", cliente3.saldo)
 print("Nombre cliente: ", cliente4.nombre, "Cliente Giro: ", cliente4.girar(25000), "Cliente Abono: ", cliente4.abonar(20000), "Mostrar Saldo: ", cliente4.saldo)
->>>>>>> a5267fe572efe979c00f6e87186f6984244edc51
-=======
+
 print('AGREGAMOS 4 CLIENTES A FINANCIERA MONEY')
 cliente5 = Cliente('Pedro', 0)
 cliente6 = Cliente('Miguel', 60000)
 cliente7 = Cliente('Walter', 70000)
 cliente8 = Cliente('Francisca', 80000)
->>>>>>> 68879d1994addf0ed51346091c07a29f32cb8098
+
 
 financiera2.agregar(cliente5)
 financiera2.agregar(cliente6)
