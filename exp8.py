@@ -8,6 +8,7 @@ import uuid
 class Cliente():
 
 	def __init__(self, nombre, saldo):
+		self.saldo_apertura = saldo
 		self.nombre = nombre
 		self.saldo = saldo
 		self.id_cliente = uuid.uuid4()
@@ -42,11 +43,15 @@ class Financiera():
 		self.girosT = []
 
 	def agregar(self, cliente):
-		tupla = (cliente.nombre, cliente.saldo + 10**6)
-		self.saldo_institucional = self.saldo_institucional - 10**6
-		self.clientes.append(tupla)
-		print('Financiera: Se ha agregado el siguiente cliente', self.clientes)
-		cliente.abonar(10**6)
+		self.total_clientes = len(self.clientes)
+		if self.total_clientes < 10:
+			tupla = (cliente.nombre, cliente.saldo + 10**6)
+			self.saldo_institucional = self.saldo_institucional - 10**6
+			self.clientes.append(tupla)
+			print('Financiera: Se ha agregado el siguiente cliente', self.clientes)
+			cliente.abonar(10**6)
+		else:
+			print("No se puede agregar cliente")
 
 	def eliminar(self):
 		i = input('ingrese el indice en la lista que corresponde al cliente a eliminar: ')
@@ -69,12 +74,25 @@ class Financiera():
 		print('Los abonos totales son:', self.abonosT)
 
 	def mostrar_saldo_institucional(self):
-		pass
+		n = 0
+		while n < len(self.clientes):
+			self.saldo_institucional += self.clientes[n][1] - 10**6
+			n += 1
+		print("Saldo acumulado de la financiera: ", self.saldo_institucional)
 
 # crear clientes
 cliente1 = Cliente('juana', 60000)
 cliente2 = Cliente('Carlos', 0)
-cliente3 = Cliente('Pepe', 500000)
+cliente3 = Cliente('Pepe', 0)
+cliente4 = Cliente('Pepe1', 0)
+cliente5 = Cliente('Pepe2', 0)
+cliente6 = Cliente('Pepe3', 0)
+cliente7 = Cliente('Pepe4', 0)
+cliente8 = Cliente('Pepe5', 0)
+cliente9 = Cliente('Pepe6', 0)
+cliente10 = Cliente('Pepe7', 0)
+cliente11 = Cliente('Pepe8', 0)
+cliente12 = Cliente('Pepe9', 0)
 
 # crear financiera 
 financiera1 = Financiera('piraña')
@@ -84,6 +102,17 @@ print('SE AGREGAN CLIENTES A FINANCIERA')
 financiera1.agregar(cliente1)
 financiera1.agregar(cliente2)
 financiera1.agregar(cliente3)
+financiera1.agregar(cliente4)
+financiera1.agregar(cliente5)
+financiera1.agregar(cliente6)
+financiera1.agregar(cliente7)
+financiera1.agregar(cliente8)
+financiera1.agregar(cliente9)
+financiera1.agregar(cliente10)
+financiera1.agregar(cliente11)
+financiera1.agregar(cliente12)
+
+
 
 #cliente1.mostrar_saldo()
 
@@ -118,7 +147,7 @@ financiera1.giros_totales(cliente3)
 #cliente1.mostrar_saldo()
 #Cliente.mostrar_saldo(cliente1)
 
-
+financiera1.mostrar_saldo_institucional()
 input()
 
 		
