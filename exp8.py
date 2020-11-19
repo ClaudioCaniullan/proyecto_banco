@@ -13,6 +13,7 @@ class Cliente():
 		self.id_cliente = uuid.uuid4()
 
 	def girar(self, giro):
+		self.giro = giro
 		if self.saldo >= giro:
 			self.saldo -= giro
 			print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
@@ -37,6 +38,8 @@ class Financiera():
 		self.saldo_institucional = 100000000
 		self.id_unico = uuid.uuid4()
 		self.clientes = []
+		self.abonosT = []
+		self.girosT = []
 
 	def agregar(self, cliente):
 		tupla = (cliente.nombre, cliente.saldo + 10**6)
@@ -58,14 +61,12 @@ class Financiera():
 		
 
 	def giros_totales(self, cliente):
-		girosT = []
-		girosT.append(cliente.giro)
-		print('Tus giros totales son:', girosT)
+		self.girosT.append(cliente.giro)
+		print('Los giros totales son:', self.girosT)
 
-	def abonos_totales(self, cliente):
-		abonosT = []
-		abonosT.append(cliente.abono)
-		print('Tus abonos totales son:', abonosT)
+	def abonos_totales(self, cliente):	
+		self.abonosT.append(cliente.abono)
+		print('Los abonos totales son:', self.abonosT)
 
 	def mostrar_saldo_institucional(self):
 		pass
@@ -107,7 +108,12 @@ financiera1.abonos_totales(cliente1)
 
 # revisar girtos totales
 print('REVISANDO GIROS TOTALES')
+financiera1.giros_totales(cliente1)
+cliente2.girar(1250)
 financiera1.giros_totales(cliente2)
+cliente3.girar(150000)
+financiera1.giros_totales(cliente3)
+
 # dos forma de invocar a un metedo de cliente1
 #cliente1.mostrar_saldo()
 #Cliente.mostrar_saldo(cliente1)
