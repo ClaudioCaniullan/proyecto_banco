@@ -15,19 +15,19 @@ class Cliente():
 
 	def girar(self, giro):
 		self.giro = giro
-		if self.saldo > giro:
+		if 10000000 > self.saldo > giro:
 			self.saldo -= giro
-			print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
+			print('te informamos', self.nombre ,'que tu saldo es de:$', self.saldo)
 		else:
 			print(self.nombre ,'no puede efectuar la transacción')
 
 	def abonar(self, abono):
 		self.abono = abono
 		self.saldo += abono
-		print('te informamos', self.nombre ,'que tu saldo es de', self.saldo)
+		print('te informamos', self.nombre ,'que tu saldo es de:$ ', self.saldo)
 
 	def mostrar_saldo(self):
-		print('Consulta de saldo:',self.nombre, 'tu saldo es de',self.saldo)
+		print('Consulta de saldo:',self.nombre, 'tu saldo es de:$ ',self.saldo)
 
 
 
@@ -60,9 +60,10 @@ class Financiera():
 
 
 	def tranferir(self, cliente1, monto, cliente2):
-		print(cliente1.nombre, 'tranfiere el monto de', monto, 'a', cliente2.nombre)
+		print(cliente1.nombre, 'tranfiere el monto de:$', monto, 'a', cliente2.nombre)
 		cliente1.girar(monto)
 		cliente2.abonar(monto)
+		
 		
 
 	def giros_totales(self, cliente):
