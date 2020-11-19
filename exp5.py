@@ -21,6 +21,7 @@ class Cliente():
         else:
             print('no puede efectuar la transacción')
 
+<<<<<<< HEAD
     def abonar(self, monto):
         self.monto = monto
         self.saldo += monto
@@ -28,6 +29,10 @@ class Cliente():
 
     def mostrar_saldo(self):
         return self.saldo + self.saldo_credito
+=======
+	def mostrar_saldo(self):
+		print(self.saldo)
+>>>>>>> a22159e6283da7f0b3e0bdcd2511a80dca566acd
 
 
 
@@ -71,8 +76,12 @@ class Financiera():
 # se crea cleinte1 y se verifica sus datos
 
 cliente1 = Cliente('juana', 60000)
+<<<<<<< HEAD
 cliente1.mostrar_saldo
 cliente1.abonar(120000)
+=======
+cliente1.mostrar_saldo()
+>>>>>>> a22159e6283da7f0b3e0bdcd2511a80dca566acd
 l1 = [cliente1.nombre, cliente1.saldo, cliente1.id_cliente]
 print(l1)
 
@@ -97,6 +106,7 @@ print(financiera1.saldo_institucional)
 cliente3 = Cliente('Gato', 120000)
 cliente3.abonar(70000)
 financiera1.agregar(cliente3)
+<<<<<<< HEAD
 #print(financiera1.saldo_institucional)
 
 cliente4 = Cliente('claudito', 120000)
@@ -110,5 +120,10 @@ print("Total de financiera:$ ", financiera1.mostrar_saldo_institucional())
 
 print(financiera1.abonos_totales(cliente1))
 
+=======
+print(financiera1.saldo_institucional)
+cliente1.mostrar_saldo()
+input()
+>>>>>>> a22159e6283da7f0b3e0bdcd2511a80dca566acd
 
 dir(__main__.cliente)
