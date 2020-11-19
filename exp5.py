@@ -21,10 +21,10 @@ class Cliente():
         else:
             print('no puede efectuar la transacción')
 
-    def abonar(self, abonar):
-        self.abonar = self.abonar
-        self.saldo += abonar
-        print(self.saldo)
+    def abonar(self, monto):
+        self.monto = monto
+        self.saldo += monto
+        return self.monto
 
     def mostrar_saldo(self):
         return self.saldo + self.saldo_credito
@@ -60,12 +60,10 @@ class Financiera():
     def giros_totales(self):
         pass
 
-    def abonos_totales(self):
-        clientes_abonos = []
-        cliente_abonos =(cliente.abonar)
-        cliente_abonos.append(clientes_abonos)
+    def abonos_totales(self, abonar):
+        cliente_abonos = []
+        cliente_abonos.append(cliente.abonar)
         return cliente_abonos
-        pass
 
     def mostrar_saldo_institucional(self):
         return self.saldo_institucional
@@ -92,58 +90,25 @@ print(financiera1.saldo_institucional)
 
 # se crea cliente 2 y se agrega, observar que el saldo de la financiera disminuye en 2 millones
 cliente2 = Cliente('Carlos', 0)
-cliente2.mostrar_saldo
 financiera1.agregar(cliente2)
 print(financiera1.saldo_institucional)
 
 # idem, cliente 3 
 cliente3 = Cliente('Gato', 120000)
-cliente3.mostrar_saldo
 cliente3.abonar(70000)
 financiera1.agregar(cliente3)
 #print(financiera1.saldo_institucional)
 
-cliente4 = Cliente('claudito', 0)
-cliente4.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente5 = Cliente('claudito', 70000)
-cliente5.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente6 = Cliente('claudito', 7000)
-cliente6.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente7 = Cliente('claudito', 12000)
-cliente7.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente8 = Cliente('claudito', 20000)
-cliente8.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente9 = Cliente('claudito', 701000)
-cliente9.mostrar_saldo
-financiera1.agregar(cliente3)
-
-cliente10 = Cliente('claudito', 40000)
-cliente10.mostrar_saldo
+cliente3 = Cliente('claudito', 120000)
 financiera1.agregar(cliente3)
 
 
 
 print("saldo cliente:$ ", cliente1.mostrar_saldo())
-print("saldo cliente:$ ", cliente2.mostrar_saldo())
-print("saldo cliente:$ ", cliente3.mostrar_saldo())
-print("saldo cliente:$ ", cliente5.mostrar_saldo())
-print("saldo cliente:$ ", cliente6.mostrar_saldo())
-print("saldo cliente:$ ", cliente7.mostrar_saldo())
-print("saldo cliente:$ ", cliente8.mostrar_saldo())
-print("saldo cliente:$ ", cliente9.mostrar_saldo())
-print("saldo cliente:$ ", cliente10.mostrar_saldo())
-
-
 print("Total de financiera:$ ", financiera1.mostrar_saldo_institucional())
 
 
+print(financiera1.abonos_totales(cliente1))
+
+
+#print(dir  ( __main__) )
