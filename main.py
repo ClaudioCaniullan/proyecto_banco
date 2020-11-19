@@ -135,3 +135,5 @@ cliente14.mostrar_saldo()
 
 print("Estado financiero: ")
 financiera2.mostrar_saldo_institucional()
+
+input()
