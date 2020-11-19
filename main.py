@@ -30,8 +30,11 @@ financiera2.agregar(cliente6)
 financiera2.agregar(cliente7)
 financiera2.agregar(cliente8)
 
-# 3.REALIZAR 3 OPERACIONES POR CADA CLIENTE DE DISTINTO TIPO GIROS, ABONOS
+# 3.REALIZAR 3 OPERACIONES POR CADA CLIENTE DE DISTINTO TIPO GIROS, ABONOS (AGREGADO OK)
 print('RELIZAR 3 OPERACIONES POR CADA CLIENTE')
+financiera1.tranferir(cliente4, 10000, cliente2)
+financiera2.tranferir(cliente3, 40000, cliente1)
+financiera1.tranferir(cliente1, 600000, cliente2)
 
 
 # 4.RELIZAR GIROS EN DOS CLIENTES QUE DEMUESTREN QUE NO PUEDEN RETIRAR 10**6
