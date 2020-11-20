@@ -1,4 +1,5 @@
 import uuid
+import time
 
 
 class Financiera():
@@ -12,15 +13,17 @@ class Financiera():
         self.girosT = []
 
     def agregar(self, cliente):
+
         self.total_clientes = len(self.clientes)
         if self.total_clientes < 10:
             tupla = (cliente.nombre, cliente.saldo + 10**6)
             self.saldo_institucional = self.saldo_institucional - 10**6
             self.clientes.append(tupla)
-            print('Financiera: Se ha agregado el siguiente cliente', self.clientes)
+            print('Se ha agregado el siguiente cliente: ', cliente.nombre)
             cliente.abonar(10**6)
+            time.sleep(0.5)
         else:
-            print("No se puede agregar cliente")
+            print(cliente.nombre, "No puedes ingresar a Financiera. Límite 10%\n")
 
     def eliminar(self):
         i = input('ingrese el indice en la lista que corresponde al cliente a eliminar: ')
@@ -31,11 +34,12 @@ class Financiera():
     def tranferir(self, cliente1, monto, cliente2):
 
         if monto < 10**6:
-            print(cliente1.nombre, 'tranfiere el monto de:$', monto, 'a', cliente2.nombre)
+            print(cliente1.nombre, 'tranfiere el monto de: $', monto, 'a', cliente2.nombre)
             cliente1.girar(monto)
             cliente2.abonar(monto)
+            time.sleep(0.5)
         else:
-            print("Se rechaza la tranferencia")
+            print(cliente1.nombre, "No puedes transferir el monto de", monto, "a", cliente2.nombre, "porque tu saldo actual es de ", cliente1.saldo)
 
 
     def giros_totales(self, cliente):
@@ -51,4 +55,4 @@ class Financiera():
         while n < len(self.clientes):
             self.saldo_institucional += self.clientes[n][1] - 10**6
             n += 1
-        print("Saldo acumulado de la financiera:$", self.saldo_institucional)
+        print("Saldo acumulado de la financiera:$", self.saldo_institucional, "\n")
