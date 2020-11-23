@@ -61,9 +61,11 @@ class Financiera():
 
 	def tranferir(self, cliente1, monto, cliente2):
 		print(cliente1.nombre, 'tranfiere el monto de:$', monto, 'a', cliente2.nombre)
-		cliente1.girar(monto)
-		cliente2.abonar(monto)
-		
+		is self.monto > 10000000:
+		    cliente1.girar(monto)
+		    cliente2.abonar(monto)
+		else:
+			print("Rechazada la transacción")
 		
 
 	def giros_totales(self, cliente):
